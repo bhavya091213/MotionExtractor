@@ -5,20 +5,21 @@ import shutil
 # Set input folder, output file name, and output folder
 
 
-
-
-def compileFromImages(input_folder, output_path):   
+def compileFromImages(input_folder, output_path):
     # Get the list of image files in the input folder
     image_files = os.listdir(input_folder)
 
     # Get the dimensions of the first image
-    first_image_path = os.path.join(input_folder, image_files[0])
+    try:
+        first_image_path = os.path.join(input_folder, image_files[0])
+    except IndexError:
+        print("oh well that")
     first_image = cv2.imread(first_image_path)
     height, width, channels = first_image.shape
 
     # Set the output video dimensions, frame rate, and codec
     fps = 30
-    fourcc = cv2.VideoWriter_fourcc(*'v264')
+    fourcc = cv2.VideoWriter_fourcc(*"v264")
 
     # Create a VideoWriter object
     out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
@@ -28,18 +29,18 @@ def compileFromImages(input_folder, output_path):
         # Read the image
         image_path = os.path.join(input_folder, image_file)
         image = cv2.imread(image_path)
-        
+
         # Resize the image to match the output video dimensions
         resized_image = cv2.resize(image, (width, height))
-        
+
         # Write the image to the output video
         out.write(image)
-        
+
         # Display the frame
-        
+
         # Wait for a key event
 
-    print('Processing Completed.')
+    print("Processing Completed.")
     # Release the VideoWriter object and destroy all windows
     out.release()
     fpath = "./tempDuplicates/images"
