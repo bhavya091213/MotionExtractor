@@ -1,6 +1,12 @@
-### Motion Detection
+### Motion Extraction
 
-This is a Python program that detects motion in a video stream using OpenCV. The program uses the background subtraction algorithm to detect motion and draws bounding boxes around the moving objects.
+This Python program enhances motion visibility in video streams using OpenCV. It applies specialized processing and compositing algorithms to emphasize movement patterns within the footage. This makes subtle motions more apparent and clear, which is particularly useful for:
+- Security analysis and surveillance
+- Biological research applications (e.g., studying animal behavior or cellular movement)
+- Motion pattern analysis
+- Movement trajectory visualization
+
+The program processes video frames through various algorithms to highlight and amplify motion, making otherwise subtle movements more visible to the human eye.
 
 ### Video Stabilization
 
